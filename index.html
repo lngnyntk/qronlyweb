@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Halaman Privat</title>
+  <title>Scan QR → Akses Rahasia</title>
 </head>
 <body>
-  <div id="konten" style="display:none;">
-    <h1>Selamat datang di halaman rahasia 🕵️‍♂️</h1>
-  </div>
+  <p>🔐 Sedang memproses akses...</p>
 
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const akses = urlParams.get('access');
+    // Generate UUID
+    const uuid = crypto.randomUUID();
 
-    // Token rahasia, boleh diganti
-    const tokenBenar = "RAHASIA123";
+    // Simpan ke penyimpanan sementara (session atau local)
+    sessionStorage.setItem("uuid_token", uuid);
 
-    if (akses === tokenBenar) {
-      document.getElementById('konten').style.display = 'block';
-    } else {
-      // Akses ditolak
-      alert("Akses ditolak!");
-      window.location.href = "https://google.com"; // bisa diarahkan ke halaman publik
-    }
+    // Redirect ke halaman rahasia
+    window.location.href = "private.html";
   </script>
 </body>
 </html>
