@@ -8,8 +8,8 @@
   <p>🚪 Anda telah logout.</p>
 
   <script>
-    localStorage.removeItem("uuid_token");
-    localStorage.removeItem("uuid_exp");
+    sessionStorage.removeItem("uuid_token");
+    sessionStorage.removeItem("uuid_exp");
 
     setTimeout(() => {
       window.location.href = "index.html";

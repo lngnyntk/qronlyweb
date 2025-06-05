@@ -6,8 +6,8 @@
 </head>
 <body>
   <script>
-    const uuid = localStorage.getItem("uuid_token");
-    const exp = parseInt(localStorage.getItem("uuid_exp"));
+    const uuid = sessionStorage.getItem("uuid_token");
+    const exp = parseInt(sessionStorage.getItem("uuid_exp"));
     const now = Date.now();
 
     if (!uuid || isNaN(exp) || now > exp) {
@@ -21,7 +21,7 @@
   <p>🔚 <a href="logout.html">Logout</a></p>
 
   <script>
-    document.getElementById("uuid").innerText = localStorage.getItem("uuid_token");
+    document.getElementById("uuid").innerText = sessionStorage.getItem("uuid_token");
   </script>
 </body>
 </html>

@@ -11,8 +11,8 @@
     const uuid = crypto.randomUUID();
     const exp = Date.now() + 60 * 1000; // 1 menit ke depan
 
-    localStorage.setItem("uuid_token", uuid);
-    localStorage.setItem("uuid_exp", exp.toString());
+    sessionStorage.setItem("uuid_token", uuid);
+    sessionStorage.setItem("uuid_exp", exp.toString());
 
     window.location.href = "private.html";
   </script>
