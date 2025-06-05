@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halaman Rahasia</title>
+</head>
+<body>
+  <script>
+    const uuid = sessionStorage.getItem("uuid_token");
+
+    if (!uuid) {
+      alert("🚫 Akses ditolak: Token tidak ditemukan.");
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <h1>🕵️ Akses Diberikan</h1>
+  <p>UUID: <span id="uuid"></span></p>
+
+  <script>
+    document.getElementById("uuid").innerText = sessionStorage.getItem("uuid_token");
+  </script>
+</body>
+</html>
