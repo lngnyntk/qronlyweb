@@ -16,5 +16,22 @@
 
     window.location.href = "private.html";
   </script>
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  const isLogout = params.get("logout");
+
+  if (!isLogout) {
+    const uuid = crypto.randomUUID();
+    const exp = Date.now() + 60 * 1000;
+
+    sessionStorage.setItem("uuid_token", uuid);
+    sessionStorage.setItem("uuid_exp", exp.toString());
+
+    window.location.href = "private.html";
+  } else {
+    document.body.innerHTML = "<p>✅ Anda telah logout. Silakan tutup tab ini.</p>";
+  }
+</script>
+
 </body>
 </html>
