@@ -1,19 +1,19 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Scan QR → Akses Rahasia</title>
+  <title>Proses Akses</title>
 </head>
 <body>
-  <p>🔐 Sedang memproses akses...</p>
+  <p>🔐 Membuat akses rahasia...</p>
 
   <script>
-    // Generate UUID
     const uuid = crypto.randomUUID();
+    const exp = Date.now() + 60 * 1000; // 1 menit ke depan
 
-    // Simpan ke penyimpanan sementara (session atau local)
-    sessionStorage.setItem("uuid_token", uuid);
+    localStorage.setItem("uuid_token", uuid);
+    localStorage.setItem("uuid_exp", exp.toString());
 
-    // Redirect ke halaman rahasia
     window.location.href = "private.html";
   </script>
 </body>

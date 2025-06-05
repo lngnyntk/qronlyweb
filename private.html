@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,19 +6,22 @@
 </head>
 <body>
   <script>
-    const uuid = sessionStorage.getItem("uuid_token");
+    const uuid = localStorage.getItem("uuid_token");
+    const exp = parseInt(localStorage.getItem("uuid_exp"));
+    const now = Date.now();
 
-    if (!uuid) {
-      alert("🚫 Akses ditolak: Token tidak ditemukan.");
+    if (!uuid || isNaN(exp) || now > exp) {
+      alert("🚫 Akses ditolak: Token tidak sah atau kedaluwarsa.");
       window.location.href = "index.html";
     }
   </script>
 
-  <h1>🕵️ Akses Diberikan</h1>
-  <p>UUID: <span id="uuid"></span></p>
+  <h1>🕵️ Selamat datang!</h1>
+  <p>UUID Anda: <span id="uuid"></span></p>
+  <p>🔚 <a href="logout.html">Logout</a></p>
 
   <script>
-    document.getElementById("uuid").innerText = sessionStorage.getItem("uuid_token");
+    document.getElementById("uuid").innerText = localStorage.getItem("uuid_token");
   </script>
 </body>
 </html>
