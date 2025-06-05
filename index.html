@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Halaman Privat</title>
+</head>
+<body>
+  <div id="konten" style="display:none;">
+    <h1>Selamat datang di halaman rahasia 🕵️‍♂️</h1>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const akses = urlParams.get('access');
+
+    // Token rahasia, boleh diganti
+    const tokenBenar = "RAHASIA123";
+
+    if (akses === tokenBenar) {
+      document.getElementById('konten').style.display = 'block';
+    } else {
+      // Akses ditolak
+      alert("Akses ditolak!");
+      window.location.href = "https://google.com"; // bisa diarahkan ke halaman publik
+    }
+  </script>
+</body>
+</html>
